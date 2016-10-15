@@ -1,12 +1,11 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 {{#each users}}
     <article>
-        <h1> title: {{login}}</h1>
-        <p> url: {{password}}</p>
+        <h1> <a href="/users/{{id}}">{{login}}</a></h1>
+        <p> {{location}}</p>
     </article>
-{{/users}}
-hello
+{{/each}}
+
 
 <form action="/users/" method="post">
     <div class="input">

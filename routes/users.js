@@ -1,21 +1,32 @@
 var express = require('express');
 var router = express.Router();
 var db = require('orm').db;
-var User = db.models.user;
+var User = db.models.users;
 
 /* GET articles listing. */
 router.get('/', function(req, res, next) {
     User.find(function(err, users) {
         if (err) throw new Error(err);
-        // res.json(users);
+        res.render('users', {
+            layout: 'layouts/other',
+            title: 'Userenator',
+            users: users
+        });
+    })
+});
 
-        // res.render('home/index', {
-        //   title: 'Generator-Express MVC',
-        //   articles: articles
-        // });
-    }).each(function (user) {
-      console.log(user)
-    });
+router.get('/:id', function(req, res, next) {
+    User.get(req.params.id,
+        function(err, user) {
+            if (err) throw new Error(err);
+            res.render('user', {
+                layout: 'layouts/other',
+                // location: 'Userenator',
+                location: user.location,
+                login: user.login,
+                email: user.email
+            });
+    })
 });
 
 router.post('/', function(req, res, next) {

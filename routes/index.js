@@ -6,8 +6,9 @@ var User = db.models.users;
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-    User.find().each(function(user) {
-        // console.log(user.serialize())
+    User.find(function(err, users) {
+      
+        res.sendStatus(200);
     })
 
 });
