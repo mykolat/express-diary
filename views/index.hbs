@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+{{#each articles}}
+    <article>
+        <h1> title: {{title}}</h1>
+        <p> url: {{url}}</p>
+    </article>
+{{/each}}
+
+<form action="/articles/" method="post">
+    <div class="input">
+        <p>
+            <label for="text">
+            <font color="#CDC9C9" face="Lucida Sans Unicode">Text</font></label></p>
+        <input type="text" id="text" name="text">
+    </div>
+    <div class="input">
+        <p><label for="url"><font color="#CDC9C9" face="Lucida Sans Unicode">url</font></label></p>
+        <input type="url" id="url" name="url">
+    </div>
+    <p><button type="submit">post</button></p>
+</form>

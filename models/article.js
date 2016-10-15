@@ -2,8 +2,10 @@
 var db = require('orm').db;
 
 var Article = db.define('article', {
+
     title: String,
-    url: String
+    url: String,
+    text: String
 }, {
     methods: {
         example: function(){
